@@ -1,0 +1,7 @@
+{
+  "name": "typescript-template",
+  "version": "1.0.0",
+  "description": "A template for a new TypeScript project with all the CI configurations",
+  "author": "Baruch Odem <baruchiro@gmail.com>",
+  "license": "MIT"
+}
