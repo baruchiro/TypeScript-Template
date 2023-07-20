@@ -9,7 +9,9 @@
     "lint": "eslint src --ext .ts && stylelint --allow-empty-input **/*.css",
     "lint:fix": "eslint src --ext .ts --fix && stylelint --allow-empty-input --fix **/*.css",
     "lint:ci": "eslint src --ext .ts --format @jamesacarr/github-actions && stylelint --allow-empty-input --formatter=github **/*.css",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
@@ -21,9 +23,22 @@
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "latest",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "3.0.0",
     "stylelint": "^15.10.2",
     "stylelint-config-standard": "^34.0.0",
     "typescript": "*"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "tsc --noEmit"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ]
   }
 }
