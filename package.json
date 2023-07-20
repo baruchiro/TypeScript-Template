@@ -5,7 +5,25 @@
   "author": "Baruch Odem <baruchiro@gmail.com>",
   "license": "MIT",
   "packageManager": "yarn@1.22.19",
+  "scripts": {
+    "lint": "eslint src --ext .ts && stylelint --allow-empty-input **/*.css",
+    "lint:fix": "eslint src --ext .ts --fix && stylelint --allow-empty-input --fix **/*.css",
+    "lint:ci": "eslint src --ext .ts --format @jamesacarr/github-actions && stylelint --allow-empty-input --formatter=github **/*.css",
+    "prettier": "prettier . --write"
+  },
   "devDependencies": {
-    "typescript": "^5.1.6"
+    "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "latest",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "latest",
+    "prettier": "3.0.0",
+    "stylelint": "^15.10.2",
+    "stylelint-config-standard": "^34.0.0",
+    "typescript": "*"
   }
 }
