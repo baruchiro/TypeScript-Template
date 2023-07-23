@@ -5,9 +5,13 @@
   "author": "Baruch Odem <baruchiro@gmail.com>",
   "license": "MIT",
   "packageManager": "yarn@1.22.19",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "lint": "eslint src --ext .ts && stylelint --allow-empty-input **/*.css",
     "lint:fix": "eslint src --ext .ts --fix && stylelint --allow-empty-input --fix **/*.css",
+    "lint:lockfile": "lockfile-lint --path yarn.lock --allowed-hosts npm yarn --validate-https --validate-package-names --validate-integrity --empty-hostname false",
     "lint:ci": "eslint src --ext .ts --format @jamesacarr/github-actions && stylelint --allow-empty-input --formatter=github **/*.css",
     "prettier": "prettier . --write",
     "typecheck": "tsc --noEmit",
@@ -25,6 +29,7 @@
     "eslint-plugin-react": "latest",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
+    "lockfile-lint": "^4.10.6",
     "prettier": "3.0.0",
     "stylelint": "^15.10.2",
     "stylelint-config-standard": "^34.0.0",
