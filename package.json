@@ -5,45 +5,43 @@
   "author": "Baruch Odem <baruchiro@gmail.com>",
   "license": "MIT",
   "packageManager": "yarn@1.22.19",
+  "type": "module",
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "lint": "eslint src --ext .ts && stylelint --allow-empty-input **/*.css",
-    "lint:fix": "eslint src --ext .ts --fix && stylelint --allow-empty-input --fix **/*.css",
+    "start": "echo 'Use the VSCode debugger'",
+    "lint": "eslint src && stylelint --allow-empty-input **/*.css",
+    "lint:fix": "eslint src --fix && stylelint --allow-empty-input --fix **/*.css",
     "lint:lockfile": "lockfile-lint --path yarn.lock --allowed-hosts npm yarn --validate-https --validate-package-names --validate-integrity --empty-hostname false",
-    "lint:ci": "eslint src --ext .ts --format @jamesacarr/github-actions && stylelint --allow-empty-input --formatter=github **/*.css",
+    "lint:ci": "eslint src --format @jamesacarr/github-actions && stylelint --allow-empty-input --formatter=github **/*.css",
     "prettier": "prettier . --write",
     "typecheck": "tsc --noEmit",
     "prepare": "husky install"
   },
   "devDependencies": {
     "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.50.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-config-standard-with-typescript": "latest",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "latest",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "lockfile-lint": "^4.10.6",
     "prettier": "3.0.0",
     "stylelint": "^15.10.2",
     "stylelint-config-standard": "^34.0.0",
-    "typescript": "*"
+    "typescript": "*",
+    "typescript-eslint": "^7.3.1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "prettier --write",
       "tsc --noEmit"
     ],
-    "*.{css,scss}": [
-      "stylelint --fix",
+    "*.{js,jsx,ts,tsx,json,yml,yaml,md}": [
       "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix"
     ]
   }
 }
